@@ -4,6 +4,7 @@
 // Modified by Dima
 
 using UnityEngine;
+using FMOD.Studio;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif

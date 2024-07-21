@@ -6,10 +6,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using FMODUnity;
 
 public class Weapon : MonoBehaviour
 {
     public string weaponName;
+
+    [Header("Audio")]
+    [SerializeField] private EventReference attackSound;
+    [SerializeField] private EventReference reloadStartSound;
+    [SerializeField] private EventReference reloadFinishSound;
 
     [Header("Weapon Stats")]
     [Tooltip("Damage amount per hit")]
@@ -134,6 +140,9 @@ public class Weapon : MonoBehaviour
             // Add forces to bullet
             currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * projectileSpeed, ForceMode.Impulse);
 
+            // Play shoot sound
+            AudioManager.instance.PlayOneShot(attackSound, transform.position);
+
             ammo--; // Take away one from ammo pool
 
             // Invoke resetShot function
@@ -158,6 +167,7 @@ public class Weapon : MonoBehaviour
     public void Reload()
     {
         reloading = true;
+        AudioManager.instance.PlayOneShot(reloadStartSound, transform.position);
         Invoke("ReloadFinished", reloadTime * reloadSpeedMultiplier);
     }
 
@@ -165,5 +175,6 @@ public class Weapon : MonoBehaviour
     {
         ammo = maxAmmo; // Refill ammo
         reloading = false;
+        AudioManager.instance.PlayOneShot(reloadFinishSound, transform.position);
     }
 }

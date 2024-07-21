@@ -157,6 +157,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: MinibossAR
+  attackSound:
+    Guid:
+      Data1: -2062809330
+      Data2: 1204963342
+      Data3: -1470238577
+      Data4: -1035210110
+    Path: event:/MinibossARShoot
+  reloadStartSound:
+    Guid:
+      Data1: 706920780
+      Data2: 1159346482
+      Data3: 725445305
+      Data4: -772426398
+    Path: event:/MinibossARReload
+  reloadFinishSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   baseDamage: 20
   damageMultiplier: 1
   damage: 0

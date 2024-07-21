@@ -129,6 +129,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponName: Weapon2
+  attackSound:
+    Guid:
+      Data1: 938271369
+      Data2: 1321062282
+      Data3: -913895033
+      Data4: 277780272
+    Path: event:/Weapon2Shoot
+  reloadStartSound:
+    Guid:
+      Data1: -1855247754
+      Data2: 1293551172
+      Data3: 1403858336
+      Data4: 1033086371
+    Path: event:/Weapon2Reload
+  reloadFinishSound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   baseDamage: 200
   damageMultiplier: 1
   damage: 200
