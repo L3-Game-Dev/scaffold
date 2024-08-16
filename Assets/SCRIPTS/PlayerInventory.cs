@@ -17,6 +17,11 @@ public class PlayerInventory : MonoBehaviour
     [HideInInspector] public PlayerStats playerStats;
     [HideInInspector] public UiHandler uiHandler;
 
+    public int heldBandages;
+
+
+    public int heldMedkits;
+
     public int heldCredits;
 
     private void Awake()
@@ -92,5 +97,17 @@ public class PlayerInventory : MonoBehaviour
             else
                 w.gameObject.SetActive(true);
         }
+    }
+
+    public void UseMedkit()
+    {
+        heldMedkits--;
+        playerStats.health += 100; 
+    }
+
+    public void UseBandage()
+    {
+        heldBandages--;
+        playerStats.health += 50;
     }
 }
