@@ -53,6 +53,16 @@ public class UiHandler : MonoBehaviour
     public Button upgradeButton3;
     public Button upgradeButton4;
 
+    public GameObject medicineCabinetPanel;
+    public TextMeshProUGUI medicalStat1;
+    public TextMeshProUGUI medicalStat2;
+    public TextMeshProUGUI medicalStat3;
+    public TextMeshProUGUI medicalStat4;
+    public Button upgradeButtonMedical1;
+    public Button upgradeButtonMedical2;
+    public Button upgradeButtonMedical3;
+    public Button upgradeButtonMedical4;
+
     [Header("EnterName Screen References")]
     public GameObject enterNameScreen;
     public TextMeshProUGUI enteredName;
@@ -118,7 +128,7 @@ public class UiHandler : MonoBehaviour
         ToggleMultiUI(false, new GameObject[] { interactPrompt, doorConsolePanel, hitmarker,
                                                 pauseMenu, victoryScreen, defeatScreen,
                                                 statisticsScreen, highscoresScreen, weaponUpgraderPanel,
-                                                enterNameScreen, bossBar });
+                                                enterNameScreen, bossBar, medicineCabinetPanel });
 
         GameStateHandler.Resume();
     }
@@ -322,7 +332,7 @@ public class UiHandler : MonoBehaviour
 
     private void Resume()
     {
-        ToggleMultiUI(false, new GameObject[] { pauseMenu, doorConsolePanel, weaponUpgraderPanel });
+        ToggleMultiUI(false, new GameObject[] { pauseMenu, doorConsolePanel, weaponUpgraderPanel, medicineCabinetPanel });
         GameStateHandler.Resume();
     }
 

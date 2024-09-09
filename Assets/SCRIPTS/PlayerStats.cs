@@ -22,6 +22,8 @@ public class PlayerStats : MonoBehaviour
     public float staminaDrainSpeed;
     public float staminaRegainSpeed;
 
+    public float healthRegenSpeed;
+
     [HideInInspector] public bool isDead;
 
     [Header("References")]
@@ -48,6 +50,8 @@ public class PlayerStats : MonoBehaviour
 
         uiHandler.healthBarNumber.text = health.ToString();
         uiHandler.staminaBarNumber.text = stamina.ToString();
+
+        Invoke ("RegainHealth",5.0f);
     }
 
     private void Update()
@@ -78,6 +82,8 @@ public class PlayerStats : MonoBehaviour
             {
                 newHealthAmount = health - amt;
                 StatisticsTracker.damageTaken += amt;
+                CancelInvoke("RegainHealth");
+                    Invoke("RegainHealth", 5.0f);
             }
             else // 0 health = dead
             {
@@ -126,6 +132,18 @@ public class PlayerStats : MonoBehaviour
         else
         {
             stamina = maxStamina;
+        }
+    }
+
+    public void RegainHealth()
+    {
+        if (health + 1 * healthRegenSpeed * Time.deltaTime < maxStamina)
+        { 
+            health += 1 * healthRegenSpeed * Time.deltaTime;
+        }
+        else
+        {
+            health = maxHealth;
         }
     }
 }
