@@ -392,28 +392,8 @@ public class UiHandler : MonoBehaviour
         ToggleUI(true, statisticsScreen);
         GameStateHandler.Statistics();
 
-        string tempTime = timer.time.ToString();
-        StatisticsTracker.finalTime = tempTime.Remove(tempTime.Length-4, 4);
-
-        List<Tuple<string, string>> statTuples = new List<Tuple<string, string>>{
-            new Tuple<string, string>("Total Time", StatisticsTracker.finalTime),
-            new Tuple<string, string>("Total Kills", StatisticsTracker.kills.ToString()),
-            new Tuple<string, string>("Total Damage Dealt", StatisticsTracker.damageDealt.ToString()),
-            new Tuple<string, string>("Total Damage Taken", StatisticsTracker.damageTaken.ToString())
-        };
-
-        for (int i = 0; i < statTuples.Count; i++)
-        {
-            Tuple<string, string> t = statTuples[i];
-
-            GameObject item = Instantiate(statisticItemPrefab, statisticContainer);
-            item.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = t.Item1;
-            item.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = t.Item2;
-
-            RectTransform rt = statisticContainer.GetComponent<RectTransform>();
-            rt.sizeDelta = new Vector2(rt.sizeDelta.x, 40 * (i + 1));
-            rt.anchoredPosition = new Vector2(0, -20 * (i + 1));
-        }
+        // Statistics screen functionality here
+        Debug.LogError("Statistics Screen Functionality not Implemented");
     }
 
     private void EnterNameScreen()
@@ -421,15 +401,17 @@ public class UiHandler : MonoBehaviour
         ToggleUI(false, statisticsScreen);
         ToggleUI(true, enterNameScreen);
         GameStateHandler.EnterName();
+
+        // Enter Name screen functionality here
+        Debug.LogError("Enter Name Screen Functionality not Implemented");
     }
 
     private bool CheckEnteredName()
     {
-        string name = enteredName.text.Trim((char)8203);
-        if (name != null && name != "") // Make sure entered name isnt empty
-            return true;
-        else
-            return false;
+        // CheckEnteredName functionality here
+        Debug.LogError("Check Entered Name Functionality not Implemented");
+
+        return false;
     }
 
     private void HighscoresScreen()
@@ -438,19 +420,9 @@ public class UiHandler : MonoBehaviour
         ToggleUI(true, highscoresScreen);
         GameStateHandler.Highscores();
 
-        for (int i = 0; i < HighscoreStorer.GetHighscoreCount(); i++)
-        {
-            Tuple<string, string> t = HighscoreStorer.GetHighscores(i);
-            if (t != null)
-            {
-                GameObject item = Instantiate(highscoreItemPrefab, highscoreContainer);
-                item.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = t.Item1;
-                item.transform.Find("Value").GetComponent<TextMeshProUGUI>().text = t.Item2;
+        // Highscores screen functionality here
+        Debug.LogError("Highscores Screen Functionality not Implemented");
 
-                RectTransform rt = highscoreContainer.GetComponent<RectTransform>();
-                rt.sizeDelta = new Vector2(rt.sizeDelta.x, 40 * (i + 1));
-                rt.anchoredPosition = new Vector2(0, -20 * (i + 1));
-            }
-        }
+        // Hint: Create a new highscore object for each highscore value, display them in the list
     }
 }
